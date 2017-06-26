@@ -19,18 +19,15 @@ dependencies {
 
     // Android library to display the changelog
     compile 'com.github.gabrielemariotti.changeloglib:changelog:2.0.0'
-
     //DroneKit-Android client lib
     compile 'com.o3dr.android:dronekit-android:3.0.2'
     //Comment line above, and uncomment line below to use your local version of the dronekit-android client lib
     //Don't forget to uncomment the lines in the settings.gradle file as well.
-//     compile project(':ClientLib')
-
+    //     compile project(':ClientLib')
     compile 'me.grantland:autofittextview:0.2.1'
-    compile(name:'shimmer-android-release', ext:'aar')
-    compile(name:'libuvccamera-release', ext:'aar')
-    compile(name:'sliding-up-panel-3.3.0', ext:'aar')
-
+    compile(name: 'shimmer-android-release', ext: 'aar')
+    compile(name: 'libuvccamera-release', ext: 'aar')
+    compile(name: 'sliding-up-panel-3.3.0', ext: 'aar')
     compile files('libs/droneapi-java-0.3-SNAPSHOT.jar')
     compile files('libs/protobuf-java-2.5.0.jar')
     compile files('libs/jeromq-0.3.4.jar')
@@ -45,17 +42,15 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
-
     //Charts and graph library
     compile 'com.github.lecho:hellocharts-library:1.5.5@aar'
-
     //Leak canary (https://github.com/square/leakcanary)
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 }
 
-def versionPrefix = "Tower-v"
+def versionPrefix = "AgroTower-v"
 
 //Decomposed version name and code (https://plus.google.com/+JakeWharton/posts/6f5TcVPRZij)
 def versionMajor = 4
@@ -80,7 +75,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'org.droidplanner.android'
+        applicationId 'com.pranburiorchard.android'
         minSdkVersion android_build_min_sdk_version
         targetSdkVersion android_build_target_sdk_version
         versionCode computeVersionCode(versionMajor, versionMinor, versionPatch, versionBuild)
@@ -135,10 +130,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile getAppKeystoreFile()
-            storePassword getAppKeystorePassword()
-            keyAlias getAppKey()
-            keyPassword getAppKeyPassword()
+            storeFile file('C:/Users/Taweechai.M/Documents/pvt/android_key/AgroTowerKey.jks')
+            storePassword 'T@weechai2751'
+            keyAlias 'key0'
+            keyPassword 'T@weechai2751'
         }
     }
 
@@ -188,7 +183,7 @@ android {
     productFlavors {
         dev {
             applicationIdSuffix ".debug"
-            resValue "string", "app_title", "Tower Dev"
+            resValue "string", "app_title", "AgroTower Dev"
             resValue "string", "baidu_api_key", ""
             versionName generateVersionName(versionPrefix, versionMajor, versionMinor, versionPatch, "debug.${versionBuild}")
 
@@ -198,7 +193,7 @@ android {
 
         beta {
             applicationIdSuffix ".beta"
-            resValue "string", "app_title", "Tower Beta"
+            resValue "string", "app_title", "AgroTower Beta"
             resValue "string", "baidu_api_key", "4x7A3lUHEmzFxosafDa4bLP7yinmEnPh"
             versionName generateVersionName(versionPrefix, versionMajor, versionMinor, versionPatch, "beta.${versionBuild}")
 
@@ -207,7 +202,7 @@ android {
         }
 
         prod {
-            resValue "string", "app_title", "Tower"
+            resValue "string", "app_title", "AgroTower"
             resValue "string", "baidu_api_key", "41mPy2URFjOL61GzyWk8U5oLhhwSYGWe"
             buildConfigField "boolean", "WRITE_LOG_FILE", "false"
 
@@ -226,7 +221,7 @@ android {
             buildConfigField "boolean", "ENABLE_CRASHLYTICS", "${hasFabricApiKey()}"
         }
     }
-    buildToolsVersion '24.0.1'
+    buildToolsVersion '25.0.0'
 }
 
 /**
