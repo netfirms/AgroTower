@@ -125,10 +125,6 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('C:/Users/Taweechai.M/Documents/pvt/android_key/AgroTowerKey.jks')
-            storePassword 'T@weechai2751'
-            keyAlias 'key0'
-            keyPassword 'T@weechai2751'
         }
     }
 
