@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/netfirms/AgroTower/AgroTower.svg?branch=develop)](https://travis-ci.org/netfirms/AgroTower)
+[![Build Status](https://travis-ci.org/netfirms/AgroTower.svg?branch=AgroTower-develop)](https://travis-ci.org/netfirms/AgroTower)
 
 # AgroTower
 
